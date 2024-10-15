@@ -1,4 +1,3 @@
----
 name: Determined AI
 description: >-
   Determined helps deep learning teams train models more quickly, easily share
@@ -36,4 +35,3 @@ apis:
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
----
