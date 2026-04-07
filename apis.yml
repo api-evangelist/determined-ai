@@ -12,8 +12,8 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Artificial Intelligence
-  - Machine Learning
   - Deep Learning
+  - Machine Learning
   - MLOps
 url: https://raw.githubusercontent.com/api-evangelist/determined-ai/refs/heads/main/apis.yml
 created: '2024-07-02'
@@ -31,8 +31,8 @@ apis:
     baseURL: https://api.determined.ai
     tags:
       - Artificial Intelligence
-      - Machine Learning
       - Deep Learning
+      - Machine Learning
     properties:
       - type: Documentation
         url: https://docs.determined.ai/latest/rest-api/index.html
