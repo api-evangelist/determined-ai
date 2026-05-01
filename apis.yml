@@ -17,27 +17,32 @@ tags:
   - MLOps
 url: https://raw.githubusercontent.com/api-evangelist/determined-ai/refs/heads/main/apis.yml
 created: '2024-07-02'
-modified: '2026-03-16'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
   - aid: determined-ai:determined-ai-api
-    name: Determined AI API
+    name: Determined AI REST API
     description: >-
       Determined helps deep learning teams train models more quickly, easily
       share GPU resources, and effectively collaborate. The REST API provides
-      programmatic access to manage experiments, models, checkpoints, and
-      cluster resources.
+      programmatic access to manage experiments, models, checkpoints, templates,
+      users, tokens, and cluster resources.
     humanURL: https://docs.determined.ai/latest/rest-api/index.html
-    baseURL: https://api.determined.ai
     tags:
       - Artificial Intelligence
       - Deep Learning
       - Machine Learning
+      - MLOps
     properties:
       - type: Documentation
         url: https://docs.determined.ai/latest/rest-api/index.html
       - type: Getting Started
         url: https://docs.determined.ai/latest/get-started/index.html
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/determined-ai/refs/heads/main/openapi/determined-ai-openapi.yml
+      - type: Source Code
+        url: https://github.com/determined-ai/determined
 common:
   - type: Website
     url: https://www.determined.ai/
@@ -45,6 +50,8 @@ common:
     url: https://docs.determined.ai/
   - type: GitHub Organization
     url: https://github.com/determined-ai
+  - type: License
+    url: https://github.com/determined-ai/determined/blob/main/LICENSE
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
