@@ -1,0 +1,393 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Determined AI REST API
+  description: Determined is an open-source deep learning platform that helps teams train models faster, share GPU resources,
+    and collaborate. The REST API exposes cluster, experiment, model, checkpoint, template, user, and token management capabilities
+    used by the CLI and Web UI.
+  tags:
+  - Determined
+  - Ai
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: determined-ai
+    baseUri: https://master.example.com
+    description: Determined AI REST API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{DETERMINED_AI_TOKEN}}'
+    resources:
+    - name: api-v1-auth-login
+      path: /api/v1/auth/login
+      operations:
+      - name: login
+        method: POST
+        description: Log in
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-auth-logout
+      path: /api/v1/auth/logout
+      operations:
+      - name: logout
+        method: POST
+        description: Log out
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-users
+      path: /api/v1/users
+      operations:
+      - name: getusers
+        method: GET
+        description: List users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-cluster
+      path: /api/v1/cluster
+      operations:
+      - name: getclusterinfo
+        method: GET
+        description: Get cluster info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-experiments
+      path: /api/v1/experiments
+      operations:
+      - name: getexperiments
+        method: GET
+        description: List experiments
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-experiments-experimentid
+      path: /api/v1/experiments/{experimentId}
+      operations:
+      - name: getexperiment
+        method: GET
+        description: Get experiment
+        inputParameters:
+        - name: experimentId
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-models
+      path: /api/v1/models
+      operations:
+      - name: getmodels
+        method: GET
+        description: List models
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-checkpoints-checkpointuuid
+      path: /api/v1/checkpoints/{checkpointUuid}
+      operations:
+      - name: getcheckpoint
+        method: GET
+        description: Get checkpoint
+        inputParameters:
+        - name: checkpointUuid
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-templates
+      path: /api/v1/templates
+      operations:
+      - name: gettemplates
+        method: GET
+        description: List templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-tokens
+      path: /api/v1/tokens
+      operations:
+      - name: getaccesstokens
+        method: GET
+        description: List tokens
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: determined-ai-rest
+    description: REST adapter for Determined AI REST API.
+    resources:
+    - path: /api/v1/auth/login
+      name: login
+      operations:
+      - method: POST
+        name: login
+        description: Log in
+        call: determined-ai.login
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/auth/logout
+      name: logout
+      operations:
+      - method: POST
+        name: logout
+        description: Log out
+        call: determined-ai.logout
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/users
+      name: getusers
+      operations:
+      - method: GET
+        name: getusers
+        description: List users
+        call: determined-ai.getusers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/cluster
+      name: getclusterinfo
+      operations:
+      - method: GET
+        name: getclusterinfo
+        description: Get cluster info
+        call: determined-ai.getclusterinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/experiments
+      name: getexperiments
+      operations:
+      - method: GET
+        name: getexperiments
+        description: List experiments
+        call: determined-ai.getexperiments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/experiments/{experimentId}
+      name: getexperiment
+      operations:
+      - method: GET
+        name: getexperiment
+        description: Get experiment
+        call: determined-ai.getexperiment
+        with:
+          experimentId: rest.experimentId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/models
+      name: getmodels
+      operations:
+      - method: GET
+        name: getmodels
+        description: List models
+        call: determined-ai.getmodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/checkpoints/{checkpointUuid}
+      name: getcheckpoint
+      operations:
+      - method: GET
+        name: getcheckpoint
+        description: Get checkpoint
+        call: determined-ai.getcheckpoint
+        with:
+          checkpointUuid: rest.checkpointUuid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/templates
+      name: gettemplates
+      operations:
+      - method: GET
+        name: gettemplates
+        description: List templates
+        call: determined-ai.gettemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v1/tokens
+      name: getaccesstokens
+      operations:
+      - method: GET
+        name: getaccesstokens
+        description: List tokens
+        call: determined-ai.getaccesstokens
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: determined-ai-mcp
+    transport: http
+    description: MCP adapter for Determined AI REST API for AI agent use.
+    tools:
+    - name: login
+      description: Log in
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: determined-ai.login
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: logout
+      description: Log out
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: determined-ai.logout
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getusers
+      description: List users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai.getusers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getclusterinfo
+      description: Get cluster info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai.getclusterinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getexperiments
+      description: List experiments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai.getexperiments
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      inputParameters:
+      - name: limit
+        type: integer
+        description: limit
+      - name: offset
+        type: integer
+        description: offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getexperiment
+      description: Get experiment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai.getexperiment
+      with:
+        experimentId: tools.experimentId
+      inputParameters:
+      - name: experimentId
+        type: integer
+        description: experimentId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmodels
+      description: List models
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai.getmodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcheckpoint
+      description: Get checkpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai.getcheckpoint
+      with:
+        checkpointUuid: tools.checkpointUuid
+      inputParameters:
+      - name: checkpointUuid
+        type: string
+        description: checkpointUuid
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettemplates
+      description: List templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai.gettemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getaccesstokens
+      description: List tokens
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai.getaccesstokens
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    DETERMINED_AI_TOKEN: DETERMINED_AI_TOKEN
