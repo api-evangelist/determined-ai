@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Determined AI REST API — Cluster
+  description: 'Determined AI REST API — Cluster. 1 operations. Lead operation: Get cluster info. Self-contained Naftiko capability
+    covering one Determined Ai business surface.'
+  tags:
+  - Determined Ai
+  - Cluster
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DETERMINED_AI_API_KEY: DETERMINED_AI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: determined-ai-cluster
+    baseUri: https://master.example.com
+    description: Determined AI REST API — Cluster business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-cluster
+      path: /api/v1/cluster
+      operations:
+      - name: getclusterinfo
+        method: GET
+        description: Get cluster info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.DETERMINED_AI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: determined-ai-cluster-rest
+    port: 8080
+    description: REST adapter for Determined AI REST API — Cluster. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/cluster
+      name: api-v1-cluster
+      description: REST surface for api-v1-cluster.
+      operations:
+      - method: GET
+        name: getclusterinfo
+        description: Get cluster info
+        call: determined-ai-cluster.getclusterinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: determined-ai-cluster-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Determined AI REST API — Cluster. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-cluster-info
+      description: Get cluster info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai-cluster.getclusterinfo
+      outputParameters:
+      - type: object
+        mapping: $.

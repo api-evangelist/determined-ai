@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Determined AI REST API — Tokens
+  description: 'Determined AI REST API — Tokens. 1 operations. Lead operation: List tokens. Self-contained Naftiko capability
+    covering one Determined Ai business surface.'
+  tags:
+  - Determined Ai
+  - Tokens
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DETERMINED_AI_API_KEY: DETERMINED_AI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: determined-ai-tokens
+    baseUri: https://master.example.com
+    description: Determined AI REST API — Tokens business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-tokens
+      path: /api/v1/tokens
+      operations:
+      - name: getaccesstokens
+        method: GET
+        description: List tokens
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.DETERMINED_AI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: determined-ai-tokens-rest
+    port: 8080
+    description: REST adapter for Determined AI REST API — Tokens. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/tokens
+      name: api-v1-tokens
+      description: REST surface for api-v1-tokens.
+      operations:
+      - method: GET
+        name: getaccesstokens
+        description: List tokens
+        call: determined-ai-tokens.getaccesstokens
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: determined-ai-tokens-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Determined AI REST API — Tokens. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-tokens
+      description: List tokens
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: determined-ai-tokens.getaccesstokens
+      outputParameters:
+      - type: object
+        mapping: $.
