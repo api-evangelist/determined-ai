@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Determined AI REST API",
+    "version": "latest"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Log in",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://master.example.com/api/v1/auth/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Log in"
+        },
+        {
+          "info": {
+            "name": "Log out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://master.example.com/api/v1/auth/logout"
+          },
+          "docs": "Log out"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/users"
+          },
+          "docs": "List users"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get cluster info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/cluster"
+          },
+          "docs": "Get cluster info"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Experiments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List experiments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/experiments",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List experiments"
+        },
+        {
+          "info": {
+            "name": "Get experiment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/experiments/:experimentId",
+            "params": [
+              {
+                "name": "experimentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get experiment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/models"
+          },
+          "docs": "List models"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Checkpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get checkpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/checkpoints/:checkpointUuid",
+            "params": [
+              {
+                "name": "checkpointUuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get checkpoint"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/templates"
+          },
+          "docs": "List templates"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/tokens"
+          },
+          "docs": "List tokens"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
