@@ -7,7 +7,7 @@ description: >-
   bridges the gap between tools like TensorFlow and PyTorch for single researchers to the challenges that arise when
   doing deep learning at scale.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Artificial Intelligence
   - Deep Learning
