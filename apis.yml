@@ -41,6 +41,10 @@ apis:
       - type: Source Code
         url: https://github.com/determined-ai/determined
 common:
+  - type: DomainSecurity
+    url: security/determined-ai-domain-security.yml
+  - type: Authentication
+    url: authentication/determined-ai-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/determined-ai
   - type: Website
