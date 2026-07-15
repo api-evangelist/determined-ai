@@ -41,6 +41,8 @@ apis:
       - type: Source Code
         url: https://github.com/determined-ai/determined
 common:
+  - type: AgenticAccess
+    url: agentic-access/determined-ai-agentic-access.yml
   - type: DomainSecurity
     url: security/determined-ai-domain-security.yml
   - type: Authentication
