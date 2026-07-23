@@ -1,0 +1,60 @@
+openapi: 3.0.3
+info:
+  title: Determined AI REST Authentication Templates API
+  description: 'Determined is an open-source deep learning platform that helps teams train
+
+    models faster, share GPU resources, and collaborate. The REST API exposes
+
+    cluster, experiment, model, checkpoint, template, user, and token
+
+    management capabilities used by the CLI and Web UI.
+
+    '
+  version: latest
+  contact:
+    name: Determined AI
+    url: https://www.determined.ai/
+  license:
+    name: Apache-2.0
+    url: https://github.com/determined-ai/determined/blob/main/LICENSE
+servers:
+- url: https://master.example.com
+  description: Determined master server (cluster-specific)
+security:
+- bearerAuth: []
+tags:
+- name: Templates
+  description: Manage templates
+paths:
+  /api/v1/templates:
+    get:
+      tags:
+      - Templates
+      summary: List templates
+      operationId: getTemplates
+      responses:
+        '200':
+          description: List of templates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Template'
+components:
+  schemas:
+    Template:
+      type: object
+      properties:
+        name:
+          type: string
+        config:
+          type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued by the /auth/login endpoint.

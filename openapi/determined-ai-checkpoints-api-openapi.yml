@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: Determined AI REST Authentication Checkpoints API
+  description: 'Determined is an open-source deep learning platform that helps teams train
+
+    models faster, share GPU resources, and collaborate. The REST API exposes
+
+    cluster, experiment, model, checkpoint, template, user, and token
+
+    management capabilities used by the CLI and Web UI.
+
+    '
+  version: latest
+  contact:
+    name: Determined AI
+    url: https://www.determined.ai/
+  license:
+    name: Apache-2.0
+    url: https://github.com/determined-ai/determined/blob/main/LICENSE
+servers:
+- url: https://master.example.com
+  description: Determined master server (cluster-specific)
+security:
+- bearerAuth: []
+tags:
+- name: Checkpoints
+  description: Manage checkpoints
+paths:
+  /api/v1/checkpoints/{checkpointUuid}:
+    get:
+      tags:
+      - Checkpoints
+      summary: Get checkpoint
+      operationId: getCheckpoint
+      parameters:
+      - name: checkpointUuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Checkpoint details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Checkpoint'
+components:
+  schemas:
+    Checkpoint:
+      type: object
+      properties:
+        uuid:
+          type: string
+        experimentId:
+          type: integer
+        trialId:
+          type: integer
+        state:
+          type: string
+        resources:
+          type: object
+          additionalProperties:
+            type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued by the /auth/login endpoint.

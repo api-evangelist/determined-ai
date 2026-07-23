@@ -1,0 +1,66 @@
+openapi: 3.0.3
+info:
+  title: Determined AI REST Authentication Users API
+  description: 'Determined is an open-source deep learning platform that helps teams train
+
+    models faster, share GPU resources, and collaborate. The REST API exposes
+
+    cluster, experiment, model, checkpoint, template, user, and token
+
+    management capabilities used by the CLI and Web UI.
+
+    '
+  version: latest
+  contact:
+    name: Determined AI
+    url: https://www.determined.ai/
+  license:
+    name: Apache-2.0
+    url: https://github.com/determined-ai/determined/blob/main/LICENSE
+servers:
+- url: https://master.example.com
+  description: Determined master server (cluster-specific)
+security:
+- bearerAuth: []
+tags:
+- name: Users
+  description: Manage users
+paths:
+  /api/v1/users:
+    get:
+      tags:
+      - Users
+      summary: List users
+      operationId: getUsers
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        admin:
+          type: boolean
+        active:
+          type: boolean
+        displayName:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued by the /auth/login endpoint.

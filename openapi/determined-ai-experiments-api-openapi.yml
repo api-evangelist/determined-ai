@@ -1,0 +1,102 @@
+openapi: 3.0.3
+info:
+  title: Determined AI REST Authentication Experiments API
+  description: 'Determined is an open-source deep learning platform that helps teams train
+
+    models faster, share GPU resources, and collaborate. The REST API exposes
+
+    cluster, experiment, model, checkpoint, template, user, and token
+
+    management capabilities used by the CLI and Web UI.
+
+    '
+  version: latest
+  contact:
+    name: Determined AI
+    url: https://www.determined.ai/
+  license:
+    name: Apache-2.0
+    url: https://github.com/determined-ai/determined/blob/main/LICENSE
+servers:
+- url: https://master.example.com
+  description: Determined master server (cluster-specific)
+security:
+- bearerAuth: []
+tags:
+- name: Experiments
+  description: Manage experiments
+paths:
+  /api/v1/experiments:
+    get:
+      tags:
+      - Experiments
+      summary: List experiments
+      operationId: getExperiments
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: List of experiments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  experiments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Experiment'
+  /api/v1/experiments/{experimentId}:
+    get:
+      tags:
+      - Experiments
+      summary: Get experiment
+      operationId: getExperiment
+      parameters:
+      - name: experimentId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Experiment details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Experiment'
+components:
+  schemas:
+    Experiment:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        state:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        username:
+          type: string
+        labels:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued by the /auth/login endpoint.
