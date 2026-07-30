@@ -7,7 +7,20 @@ description: >-
   bridges the gap between tools like TensorFlow and PyTorch for single researchers to the challenges that arise when
   doing deep learning at scale.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/determined-ai.png
 tags:
   - Artificial Intelligence
   - Deep Learning
@@ -18,28 +31,126 @@ created: '2024-07-02'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: determined-ai:determined-ai-api
-    name: Determined AI REST API
-    description: >-
-      Determined helps deep learning teams train models more quickly, easily share GPU resources, and effectively
-      collaborate. The REST API provides programmatic access to manage experiments, models, checkpoints, templates,
-      users, tokens, and cluster resources.
-    humanURL: https://docs.determined.ai/latest/rest-api/index.html
-    tags:
-      - Artificial Intelligence
-      - Deep Learning
-      - Machine Learning
-      - MLOps
-    properties:
-      - type: Documentation
-        url: https://docs.determined.ai/latest/rest-api/index.html
-      - type: GettingStarted
-        url: https://docs.determined.ai/latest/get-started/index.html
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/determined-ai/refs/heads/main/openapi/determined-ai-openapi.yml
-      - type: Source Code
-        url: https://github.com/determined-ai/determined
+- aid: determined-ai:determined-ai-authentication-api
+  name: Determined AI Authentication API
+  description: Log in to and out of the cluster
+  humanURL: https://docs.determined.ai/latest/rest-api/index.html
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/determined-ai-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.determined.ai/latest/rest-api/index.html
+  - type: GettingStarted
+    url: https://docs.determined.ai/latest/get-started/index.html
+  - type: Source Code
+    url: https://github.com/determined-ai/determined
+- aid: determined-ai:determined-ai-checkpoints-api
+  name: Determined AI Checkpoints API
+  description: Manage checkpoints
+  humanURL: https://docs.determined.ai/latest/rest-api/index.html
+  tags:
+  - Checkpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/determined-ai-checkpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.determined.ai/latest/rest-api/index.html
+  - type: GettingStarted
+    url: https://docs.determined.ai/latest/get-started/index.html
+  - type: Source Code
+    url: https://github.com/determined-ai/determined
+- aid: determined-ai:determined-ai-cluster-api
+  name: Determined AI Cluster API
+  description: Manage cluster components
+  humanURL: https://docs.determined.ai/latest/rest-api/index.html
+  tags:
+  - Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/determined-ai-cluster-api-openapi.yml
+  - type: Documentation
+    url: https://docs.determined.ai/latest/rest-api/index.html
+  - type: GettingStarted
+    url: https://docs.determined.ai/latest/get-started/index.html
+  - type: Source Code
+    url: https://github.com/determined-ai/determined
+- aid: determined-ai:determined-ai-experiments-api
+  name: Determined AI Experiments API
+  description: Manage experiments
+  humanURL: https://docs.determined.ai/latest/rest-api/index.html
+  tags:
+  - Experiments
+  properties:
+  - type: OpenAPI
+    url: openapi/determined-ai-experiments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.determined.ai/latest/rest-api/index.html
+  - type: GettingStarted
+    url: https://docs.determined.ai/latest/get-started/index.html
+  - type: Source Code
+    url: https://github.com/determined-ai/determined
+- aid: determined-ai:determined-ai-models-api
+  name: Determined AI Models API
+  description: Manage models
+  humanURL: https://docs.determined.ai/latest/rest-api/index.html
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/determined-ai-models-api-openapi.yml
+  - type: Documentation
+    url: https://docs.determined.ai/latest/rest-api/index.html
+  - type: GettingStarted
+    url: https://docs.determined.ai/latest/get-started/index.html
+  - type: Source Code
+    url: https://github.com/determined-ai/determined
+- aid: determined-ai:determined-ai-templates-api
+  name: Determined AI Templates API
+  description: Manage templates
+  humanURL: https://docs.determined.ai/latest/rest-api/index.html
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/determined-ai-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.determined.ai/latest/rest-api/index.html
+  - type: GettingStarted
+    url: https://docs.determined.ai/latest/get-started/index.html
+  - type: Source Code
+    url: https://github.com/determined-ai/determined
+- aid: determined-ai:determined-ai-tokens-api
+  name: Determined AI Tokens API
+  description: Manage tokens
+  humanURL: https://docs.determined.ai/latest/rest-api/index.html
+  tags:
+  - Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/determined-ai-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://docs.determined.ai/latest/rest-api/index.html
+  - type: GettingStarted
+    url: https://docs.determined.ai/latest/get-started/index.html
+  - type: Source Code
+    url: https://github.com/determined-ai/determined
+- aid: determined-ai:determined-ai-users-api
+  name: Determined AI Users API
+  description: Manage users
+  humanURL: https://docs.determined.ai/latest/rest-api/index.html
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/determined-ai-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.determined.ai/latest/rest-api/index.html
+  - type: GettingStarted
+    url: https://docs.determined.ai/latest/get-started/index.html
+  - type: Source Code
+    url: https://github.com/determined-ai/determined
 common:
   - type: AgenticAccess
     url: agentic-access/determined-ai-agentic-access.yml
