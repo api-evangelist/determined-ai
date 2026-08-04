@@ -1,0 +1,28 @@
+{
+  "provider": "determined-ai",
+  "sources": [
+    "determined-ai-authentication-api-openapi.yml",
+    "determined-ai-checkpoints-api-openapi.yml",
+    "determined-ai-cluster-api-openapi.yml",
+    "determined-ai-experiments-api-openapi.yml",
+    "determined-ai-models-api-openapi.yml",
+    "determined-ai-templates-api-openapi.yml",
+    "determined-ai-tokens-api-openapi.yml",
+    "determined-ai-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "determined-ai-authentication-api-openapi.yml",
+    "determined-ai-checkpoints-api-openapi.yml",
+    "determined-ai-cluster-api-openapi.yml",
+    "determined-ai-experiments-api-openapi.yml",
+    "determined-ai-models-api-openapi.yml",
+    "determined-ai-templates-api-openapi.yml",
+    "determined-ai-tokens-api-openapi.yml",
+    "determined-ai-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

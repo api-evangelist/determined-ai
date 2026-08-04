@@ -1,0 +1,343 @@
+openapi: 3.0.3
+info:
+  title: Determined AI REST API
+  description: |
+    Determined is an open-source deep learning platform that helps teams train
+    models faster, share GPU resources, and collaborate. The REST API exposes
+    cluster, experiment, model, checkpoint, template, user, and token
+    management capabilities used by the CLI and Web UI.
+  version: 'latest'
+  contact:
+    name: Determined AI
+    url: https://www.determined.ai/
+  license:
+    name: Apache-2.0
+    url: https://github.com/determined-ai/determined/blob/main/LICENSE
+servers:
+  - url: https://master.example.com
+    description: Determined master server (cluster-specific)
+security:
+  - bearerAuth: []
+tags:
+  - name: Authentication
+    description: Log in to and out of the cluster
+  - name: Users
+    description: Manage users
+  - name: Cluster
+    description: Manage cluster components
+  - name: Experiments
+    description: Manage experiments
+  - name: Templates
+    description: Manage templates
+  - name: Models
+    description: Manage models
+  - name: Checkpoints
+    description: Manage checkpoints
+  - name: Tokens
+    description: Manage tokens
+paths:
+  /api/v1/auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: Log in
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Authenticated session token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+  /api/v1/auth/logout:
+    post:
+      tags:
+        - Authentication
+      summary: Log out
+      operationId: logout
+      responses:
+        '200':
+          description: Session terminated
+  /api/v1/users:
+    get:
+      tags:
+        - Users
+      summary: List users
+      operationId: getUsers
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+  /api/v1/cluster:
+    get:
+      tags:
+        - Cluster
+      summary: Get cluster info
+      operationId: getClusterInfo
+      responses:
+        '200':
+          description: Cluster information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterInfo'
+  /api/v1/experiments:
+    get:
+      tags:
+        - Experiments
+      summary: List experiments
+      operationId: getExperiments
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of experiments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  experiments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Experiment'
+  /api/v1/experiments/{experimentId}:
+    get:
+      tags:
+        - Experiments
+      summary: Get experiment
+      operationId: getExperiment
+      parameters:
+        - name: experimentId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Experiment details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Experiment'
+  /api/v1/models:
+    get:
+      tags:
+        - Models
+      summary: List models
+      operationId: getModels
+      responses:
+        '200':
+          description: List of models
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  models:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Model'
+  /api/v1/checkpoints/{checkpointUuid}:
+    get:
+      tags:
+        - Checkpoints
+      summary: Get checkpoint
+      operationId: getCheckpoint
+      parameters:
+        - name: checkpointUuid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Checkpoint details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Checkpoint'
+  /api/v1/templates:
+    get:
+      tags:
+        - Templates
+      summary: List templates
+      operationId: getTemplates
+      responses:
+        '200':
+          description: List of templates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Template'
+  /api/v1/tokens:
+    get:
+      tags:
+        - Tokens
+      summary: List tokens
+      operationId: getAccessTokens
+      responses:
+        '200':
+          description: List of access tokens
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tokenInfo:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AccessToken'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued by the /auth/login endpoint.
+  schemas:
+    LoginRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        admin:
+          type: boolean
+        active:
+          type: boolean
+        displayName:
+          type: string
+    ClusterInfo:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        masterId:
+          type: string
+        version:
+          type: string
+        telemetryEnabled:
+          type: boolean
+    Experiment:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        state:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        username:
+          type: string
+        labels:
+          type: array
+          items:
+            type: string
+    Model:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        username:
+          type: string
+        creationTime:
+          type: string
+          format: date-time
+        lastUpdatedTime:
+          type: string
+          format: date-time
+        labels:
+          type: array
+          items:
+            type: string
+    Checkpoint:
+      type: object
+      properties:
+        uuid:
+          type: string
+        experimentId:
+          type: integer
+        trialId:
+          type: integer
+        state:
+          type: string
+        resources:
+          type: object
+          additionalProperties:
+            type: string
+    Template:
+      type: object
+      properties:
+        name:
+          type: string
+        config:
+          type: object
+    AccessToken:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        expiry:
+          type: string
+          format: date-time
+        revoked:
+          type: boolean
