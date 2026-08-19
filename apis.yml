@@ -29,7 +29,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/determined-ai/refs/heads/main/apis.yml
 created: '2024-07-02'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: determined-ai:determined-ai-authentication-api
   name: Determined AI Authentication API
