@@ -1,0 +1,138 @@
+{
+  "item": [
+    {
+      "id": "26a4086b-5649-4331-bf6a-9c602113cbd5",
+      "name": "Checkpoints",
+      "description": {
+        "content": "Manage checkpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e7401d25-0221-411b-97c0-64bf9ff8fba5",
+          "name": "Get checkpoint",
+          "request": {
+            "name": "Get checkpoint",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "checkpoints",
+                ":checkpointUuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "checkpointUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87498cba-6e0e-4c2b-a53d-13c4ecdafeeb",
+              "name": "Checkpoint details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "checkpoints",
+                    ":checkpointUuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "checkpointUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"string\",\n  \"experimentId\": 7942,\n  \"trialId\": 4347,\n  \"state\": \"string\",\n  \"resources\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://master.example.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bbd3995c-e626-48be-8c14-a290723de435",
+    "name": "Determined AI REST Authentication Checkpoints API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Determined is an open-source deep learning platform that helps teams train\nmodels faster, share GPU resources, and collaborate. The REST API exposes\ncluster, experiment, model, checkpoint, template, user, and token\nmanagement capabilities used by the CLI and Web UI.\n\n\nContact Support:\n Name: Determined AI",
+      "type": "text/plain"
+    }
+  }
+}

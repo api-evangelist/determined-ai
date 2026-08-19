@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "af259c94-78df-45a5-be47-e7f6de0e1482",
+      "name": "Experiments",
+      "description": {
+        "content": "Manage experiments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d51d7728-314a-48e9-8ddc-dbce8f16f339",
+          "name": "List experiments",
+          "request": {
+            "name": "List experiments",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "experiments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c7415e9-f69b-4e64-8de4-60320a8849bd",
+              "name": "List of experiments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "experiments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"experiments\": [\n    {\n      \"id\": 3036,\n      \"name\": \"string\",\n      \"state\": \"string\",\n      \"startTime\": \"2003-08-05T21:04:53.721Z\",\n      \"endTime\": \"2001-12-26T08:37:15.446Z\",\n      \"username\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 8383,\n      \"name\": \"string\",\n      \"state\": \"string\",\n      \"startTime\": \"1990-01-20T17:25:40.194Z\",\n      \"endTime\": \"1978-12-25T22:32:46.741Z\",\n      \"username\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c4fefbc-ff87-4cc1-bc66-a3f9e68e6607",
+          "name": "Get experiment",
+          "request": {
+            "name": "Get experiment",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "experiments",
+                ":experimentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "experimentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e10f4305-ba44-4109-b4c1-4a4ef7405d81",
+              "name": "Experiment details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "experiments",
+                    ":experimentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "experimentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6645,\n  \"name\": \"string\",\n  \"state\": \"string\",\n  \"startTime\": \"1969-07-11T02:20:43.637Z\",\n  \"endTime\": \"2017-02-06T23:56:16.524Z\",\n  \"username\": \"string\",\n  \"labels\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://master.example.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4f31fbd6-5690-4737-9e32-7f53a0ebde79",
+    "name": "Determined AI REST Authentication Experiments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Determined is an open-source deep learning platform that helps teams train\nmodels faster, share GPU resources, and collaborate. The REST API exposes\ncluster, experiment, model, checkpoint, template, user, and token\nmanagement capabilities used by the CLI and Web UI.\n\n\nContact Support:\n Name: Determined AI",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Determined AI REST Authentication API",
+    "version": "latest"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Log in",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://master.example.com/api/v1/auth/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Log in"
+        },
+        {
+          "info": {
+            "name": "Log out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://master.example.com/api/v1/auth/logout"
+          },
+          "docs": "Log out"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

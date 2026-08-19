@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "cd7649a9-d080-4542-a814-d5b6010c8739",
+      "name": "Models",
+      "description": {
+        "content": "Manage models",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a5f63d1b-89d7-434a-8bd2-03fc2c1a4ca5",
+          "name": "List models",
+          "request": {
+            "name": "List models",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43a0b817-4d44-4f0c-b45d-bf84dfbc0f66",
+              "name": "List of models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"models\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"username\": \"string\",\n      \"creationTime\": \"1995-08-22T10:43:30.379Z\",\n      \"lastUpdatedTime\": \"1952-01-21T06:56:57.959Z\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"username\": \"string\",\n      \"creationTime\": \"1968-12-27T20:13:21.811Z\",\n      \"lastUpdatedTime\": \"1965-12-28T00:41:16.100Z\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://master.example.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "96374e90-980c-4464-8b71-8b6c59075187",
+    "name": "Determined AI REST Authentication Models API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Determined is an open-source deep learning platform that helps teams train\nmodels faster, share GPU resources, and collaborate. The REST API exposes\ncluster, experiment, model, checkpoint, template, user, and token\nmanagement capabilities used by the CLI and Web UI.\n\n\nContact Support:\n Name: Determined AI",
+      "type": "text/plain"
+    }
+  }
+}

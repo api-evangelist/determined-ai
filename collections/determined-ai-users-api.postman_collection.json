@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "4c6f3e94-a702-4530-920f-1a01d65bbca2",
+      "name": "Users",
+      "description": {
+        "content": "Manage users",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f4e4325-9386-4bb6-aa12-86449325bde2",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e42ebe77-3f84-4da9-90a3-8200c8f56c15",
+              "name": "List of users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"users\": [\n    {\n      \"id\": 1662,\n      \"username\": \"string\",\n      \"admin\": false,\n      \"active\": true,\n      \"displayName\": \"string\"\n    },\n    {\n      \"id\": 4389,\n      \"username\": \"string\",\n      \"admin\": true,\n      \"active\": true,\n      \"displayName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://master.example.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "478638c0-110b-42fd-8cad-5070c51f4954",
+    "name": "Determined AI REST Authentication Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Determined is an open-source deep learning platform that helps teams train\nmodels faster, share GPU resources, and collaborate. The REST API exposes\ncluster, experiment, model, checkpoint, template, user, and token\nmanagement capabilities used by the CLI and Web UI.\n\n\nContact Support:\n Name: Determined AI",
+      "type": "text/plain"
+    }
+  }
+}

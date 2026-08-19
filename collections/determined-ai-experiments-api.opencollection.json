@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Determined AI REST Authentication Experiments API",
+    "version": "latest"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Experiments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List experiments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/experiments",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List experiments"
+        },
+        {
+          "info": {
+            "name": "Get experiment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/experiments/:experimentId",
+            "params": [
+              {
+                "name": "experimentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get experiment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

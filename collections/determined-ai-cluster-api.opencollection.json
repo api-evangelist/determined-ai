@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Determined AI REST Authentication Cluster API",
+    "version": "latest"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get cluster info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/cluster"
+          },
+          "docs": "Get cluster info"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

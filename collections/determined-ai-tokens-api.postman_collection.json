@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "399df8ba-e45d-4e5e-bfab-fd4c77d12ac0",
+      "name": "Tokens",
+      "description": {
+        "content": "Manage tokens",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "91839c12-fb79-4a6e-9aa0-c8394bfcec70",
+          "name": "List tokens",
+          "request": {
+            "name": "List tokens",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f55f9e8a-bd7f-4189-a27a-ea4e2ae0b11f",
+              "name": "List of access tokens",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tokenInfo\": [\n    {\n      \"id\": 9211,\n      \"userId\": 4576,\n      \"description\": \"string\",\n      \"createdAt\": \"2023-09-18T21:40:25.555Z\",\n      \"expiry\": \"2008-08-28T18:29:01.905Z\",\n      \"revoked\": false\n    },\n    {\n      \"id\": 9259,\n      \"userId\": 5165,\n      \"description\": \"string\",\n      \"createdAt\": \"2018-12-09T14:24:37.789Z\",\n      \"expiry\": \"1990-03-27T13:40:39.604Z\",\n      \"revoked\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://master.example.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b8d90bec-6c59-4053-bcbc-eebf00ed0215",
+    "name": "Determined AI REST Authentication Tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Determined is an open-source deep learning platform that helps teams train\nmodels faster, share GPU resources, and collaborate. The REST API exposes\ncluster, experiment, model, checkpoint, template, user, and token\nmanagement capabilities used by the CLI and Web UI.\n\n\nContact Support:\n Name: Determined AI",
+      "type": "text/plain"
+    }
+  }
+}

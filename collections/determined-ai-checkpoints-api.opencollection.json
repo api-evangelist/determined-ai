@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Determined AI REST Authentication Checkpoints API",
+    "version": "latest"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Checkpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get checkpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://master.example.com/api/v1/checkpoints/:checkpointUuid",
+            "params": [
+              {
+                "name": "checkpointUuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get checkpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
