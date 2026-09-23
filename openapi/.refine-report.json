@@ -1,14 +1,7 @@
 {
   "provider": "determined-ai",
   "sources": [
-    "determined-ai-authentication-api-openapi.yml",
-    "determined-ai-checkpoints-api-openapi.yml",
-    "determined-ai-cluster-api-openapi.yml",
-    "determined-ai-experiments-api-openapi.yml",
-    "determined-ai-models-api-openapi.yml",
-    "determined-ai-templates-api-openapi.yml",
-    "determined-ai-tokens-api-openapi.yml",
-    "determined-ai-users-api-openapi.yml"
+    "_original/determined-ai-openapi.yml"
   ],
   "outputs": [
     "determined-ai-authentication-api-openapi.yml",
@@ -23,6 +16,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "determined-ai-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "determined-ai-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "determined-ai-checkpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "determined-ai-cluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "determined-ai-experiments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "determined-ai-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "determined-ai-templates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "determined-ai-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "determined-ai-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,15 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Determined AI REST Authentication Models API
+  title: Determined AI REST Models API
   description: 'Determined is an open-source deep learning platform that helps teams train
 
     models faster, share GPU resources, and collaborate. The REST API exposes
 
     cluster, experiment, model, checkpoint, template, user, and token
 
-    management capabilities used by the CLI and Web UI.
-
-    '
+    management capabilities used by the CLI and Web UI.'
   version: latest
   contact:
     name: Determined AI

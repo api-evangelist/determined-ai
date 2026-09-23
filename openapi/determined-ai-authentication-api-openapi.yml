@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Determined AI REST Authentication API
   description: 'Determined is an open-source deep learning platform that helps teams train
@@ -7,9 +7,7 @@ info:
 
     cluster, experiment, model, checkpoint, template, user, and token
 
-    management capabilities used by the CLI and Web UI.
-
-    '
+    management capabilities used by the CLI and Web UI.'
   version: latest
   contact:
     name: Determined AI
@@ -56,6 +54,16 @@ paths:
           description: Session terminated
 components:
   schemas:
+    LoginRequest:
+      type: object
+      required:
+      - username
+      - password
+      properties:
+        username:
+          type: string
+        password:
+          type: string
     LoginResponse:
       type: object
       properties:
@@ -75,16 +83,6 @@ components:
         active:
           type: boolean
         displayName:
-          type: string
-    LoginRequest:
-      type: object
-      required:
-      - username
-      - password
-      properties:
-        username:
-          type: string
-        password:
           type: string
   securitySchemes:
     bearerAuth:
