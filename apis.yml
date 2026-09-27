@@ -36,13 +36,14 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/determined
 tags:
   - Artificial Intelligence
   - Deep Learning
-  - Machine-Learning
+  - Machine Learning
   - MLOps
 tags_raw:
   - Artificial Intelligence
   - Deep Learning
   - Machine Learning
   - MLOps
+  - Machine-Learning
 url: https://raw.githubusercontent.com/api-evangelist/determined-ai/refs/heads/main/apis.yml
 created: '2024-07-02'
 modified: '2026-05-19'

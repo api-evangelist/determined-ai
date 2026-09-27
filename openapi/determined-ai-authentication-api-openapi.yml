@@ -54,6 +54,13 @@ paths:
           description: Session terminated
 components:
   schemas:
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
     LoginRequest:
       type: object
       required:
@@ -64,13 +71,6 @@ components:
           type: string
         password:
           type: string
-    LoginResponse:
-      type: object
-      properties:
-        token:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
