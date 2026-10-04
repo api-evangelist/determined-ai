@@ -1,0 +1,44 @@
+slug: determined-ai
+provider: Determined AI
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Models
+  spec_file: determined-ai-models-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.85
+  evidence: 'GET /api/v1/models  getModels  List models; schemas: Model'
+  reason: Model registry listing on a deep-learning training platform directly realises AI/ML model lifecycle
+    management.
+- tag: Experiments
+  spec_file: determined-ai-experiments-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.8
+  evidence: GET /api/v1/experiments  getExperiments  List experiments; 'without needing to worry about
+    DevOps or writing custom code for common tasks like fault tolerance or experiment tracking'
+  reason: Experiments here are deep-learning training runs tracked by the platform — ML model lifecycle
+    / MLOps, not product A/B experimentation.
+- tag: Checkpoints
+  spec_file: determined-ai-checkpoints-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: 'GET /api/v1/checkpoints/{checkpointUuid}  getCheckpoint  Get checkpoint; schemas: Checkpoint'
+  reason: Model training checkpoints are artefacts of the ML model lifecycle on a deep-learning training
+    platform; fits Artificial Intelligence Management, though a single read operation makes the evidence
+    modest.

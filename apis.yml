@@ -172,6 +172,9 @@ apis:
   - type: Source Code
     url: https://github.com/determined-ai/determined
 common:
+  - type: CapabilityMap
+    url: capabilities/determined-ai-capability-edges.yml
+    name: Determined AI Business Capability Map
   - type: AgenticAccess
     url: agentic-access/determined-ai-agentic-access.yml
   - type: DomainSecurity
