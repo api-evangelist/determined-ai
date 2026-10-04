@@ -64,6 +64,13 @@ components:
           type: string
         password:
           type: string
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -77,13 +84,6 @@ components:
           type: boolean
         displayName:
           type: string
-    LoginResponse:
-      type: object
-      properties:
-        token:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
   securitySchemes:
     bearerAuth:
       type: http
