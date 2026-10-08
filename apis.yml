@@ -172,6 +172,12 @@ apis:
   - type: Source Code
     url: https://github.com/determined-ai/determined
 common:
+  - type: Plans
+    url: plans/determined-ai-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/determined-ai-rate-limits.yml
+  - type: FinOps
+    url: finops/determined-ai-finops.yml
   - type: CapabilityMap
     url: capabilities/determined-ai-capability-edges.yml
     name: Determined AI Business Capability Map
