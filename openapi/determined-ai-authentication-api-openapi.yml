@@ -54,23 +54,6 @@ paths:
           description: Session terminated
 components:
   schemas:
-    LoginRequest:
-      type: object
-      required:
-      - username
-      - password
-      properties:
-        username:
-          type: string
-        password:
-          type: string
-    LoginResponse:
-      type: object
-      properties:
-        token:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -83,6 +66,23 @@ components:
         active:
           type: boolean
         displayName:
+          type: string
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+    LoginRequest:
+      type: object
+      required:
+      - username
+      - password
+      properties:
+        username:
+          type: string
+        password:
           type: string
   securitySchemes:
     bearerAuth:
